@@ -22,6 +22,7 @@ In this repo, we release:
 * Pretrained model weights.
 
 ## Update
+- [2024.09] Paper gets accepted at NeurIPS 2024.
 - [2024.06] [Dataset](https://huggingface.co/collections/ChenDRAG/noise-contrastive-alignment-model-and-dataset-65c49b9cb25522fdb035a206) and training code are released.
 - [2024.05] The pairwise preference version of NCA has now been supported by [trl](https://github.com/huggingface/trl) library.
 - [2024.04] NCA algorithm helps empower [Eurus-70B](https://github.com/OpenBMB/Eurus) and [Eurus-8*7B](https://github.com/OpenBMB/Eurus) model, demonstrating significant advantages in complex reasoning tasks compared to the DPO algorithm. Eurus-70B outperformed GPT-3.5-Turbo in a comprehensive benchmark across 12 tests covering five different tasks.
