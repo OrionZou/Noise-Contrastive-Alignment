@@ -1,5 +1,5 @@
 # Model arguments
-model_name_or_path: HuggingFaceH4/mistral-7B-SFT-beta
+model_name_or_path: /tf/model/Llama3/Meta-Llama-3-8B-Instruct
 torch_dtype: bfloat16
 
 # LoRA arguments
@@ -34,7 +34,7 @@ do_eval: true
 evaluation_strategy: steps
 eval_steps: 200
 loss_type: NCA #
-gradient_accumulation_steps: 4
+gradient_accumulation_steps: 8
 gradient_checkpointing: true
 gradient_checkpointing_kwargs:
   use_reentrant: false
@@ -48,8 +48,8 @@ max_prompt_length: 512
 num_train_epochs: 1
 optim: paged_adamw_32bit
 output_dir: data/test_run # It is handy to append `hub_model_revision` to keep track of your local experiments
-per_device_train_batch_size: 1
-per_device_eval_batch_size: 1
+per_device_train_batch_size: 2
+per_device_eval_batch_size: 2
 push_to_hub: false
 # save_strategy: "steps"
 # save_steps: 400
