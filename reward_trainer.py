@@ -586,6 +586,10 @@ class NCATrainer(Trainer):
         metrics[f"{prefix}logps/A1"] = policy_A1_logps.detach().cpu().mean()
         metrics[f"{prefix}logps/A2"] = policy_A2_logps.detach().cpu().mean()
         metrics[f"{prefix}logps/A3"] = policy_A3_logps.detach().cpu().mean()
+        metrics[f"{prefix}logps/A0-std"] = policy_A0_logps.detach().cpu().std()
+        metrics[f"{prefix}logps/A1-std"] = policy_A1_logps.detach().cpu().std()
+        metrics[f"{prefix}logps/A2-std"] = policy_A2_logps.detach().cpu().std()
+        metrics[f"{prefix}logps/A3-std"] = policy_A3_logps.detach().cpu().std()
 
         return losses.mean(), metrics
 
@@ -633,10 +637,10 @@ class NCATrainer(Trainer):
         else:
             reference_output = self.ref_model.generate(
                 batch["prompt_input_ids"],
-                attention_mask=batch["prompt_attention_mask"],
-                max_length=self.max_length,
-                do_sample=True,
-                pad_token_id=self.tokenizer.pad_token_id,
+                attention_mask = batch["prompt_attention_mask"],
+                max_length = self.max_length,
+                do_sample = True,
+                pad_token_id = self.tokenizer.pad_token_id,
             )
 
         policy_output = pad_to_length(policy_output, self.max_length, self.tokenizer.pad_token_id)
